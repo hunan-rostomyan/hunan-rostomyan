@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.38.2" />
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>Hunan Rostomyan</title>
+	<title>About</title>
 	
 	<meta name="description" content="">
 	<meta name="image" content="">
 	
-	<meta itemprop="name" content="Hunan Rostomyan">
+	<meta itemprop="name" content="About">
 	<meta itemprop="description" content="">
 	<meta itemprop="image" content="">
 	
-	<meta name="og:title" content="Hunan Rostomyan">
+	<meta name="og:title" content="About">
 	<meta name="og:description" content="">
 	
-	<meta name="og:url" content="https://hunan-rostomyan.github.io/">
-	<meta name="og:site_name" content="Hunan Rostomyan">
+	<meta name="og:url" content="https://hunan-rostomyan.github.io/about/">
+	<meta name="og:site_name" content="About">
 	<meta name="og:type" content="article">
 	
 	<meta name="article:tag" content="">
@@ -54,15 +53,81 @@ ga('send', 'pageview');
 </header>
 
 
+<div id="loadingMask" style="width: 100%; height: 100%; position: fixed; background: #fff;"></div>
+<script>
+function fadeOut(el) {
+  el.style.opacity = 1;
 
+  var last = +new Date();
+  var tick = function() {
+    el.style.opacity = +el.style.opacity - (new Date() - last) / 80;
+    last = +new Date();
+    
 
+    if (el.style.opacity > 0) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    } else {
+      el.style.display='none';
+    }
+  };
+
+  tick();
+}
+
+function ready(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+         el = document.getElementById('loadingMask');
+         fadeOut(el);
+        var elements = document.querySelectorAll("img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("alt")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("alt"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+
+    } else {
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
+window.onload = ready;
+</script>
 
 <div class="content">
-    <h1> posts</h1>
-    
-    
-    
+  <h1>About <aside></aside></h1>
+  <div class="hunan-frame">
+    <img src="/img/hunan.jpg"/>
 </div>
+
+<div class="about">
+
+<p>
+Hello. My name is Hunan Rostomyan. I'm a software engineer at WriteLab, where I apply machine learning to problems in nlp.
+</p>
+
+<p>
+I'm passionate about mathematics and programming.
+</p>
+
+<p>
+Though I love to play with numbers, mathematics, to me, has little to do with them. Mathematics is a web of ideas and techniques for understanding nature. It is all that remains when everything inessential is stripped away from a problem.
+</p>
+
+<p>
+Programming has as much to do with computers as math with numbers. Not much, that is. If history helps us understand the what was, mathematics: the what is, fiction: the what could be, programming allows us to understand the how.
+</p>
+
+</div>
+
+</div>
+
 
 
 
